@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public class MyRouter {
     public final static String Prefix = "http://";
+
     /*
      * 测试
      */
@@ -28,6 +29,26 @@ public class MyRouter {
      * name: String，notNull
      */
     public final static String Log_Http_Post = Prefix + MyServiceName.LogCenter + "/http/post";
+
+    /**
+     * 登录
+     * POST
+     * userName:String null
+     * phone:String null
+     * email:String null
+     * password:String notNull
+     */
+    public final static String UserManager_Logon = Prefix + MyServiceName.UserManagerCenter + "/logon";
+
+    /**
+     * 注册
+     * POST
+     * userName:String null
+     * phone:String null
+     * email:String null
+     * password:String notNull
+     */
+    public final static String UserManager_Register = Prefix + MyServiceName.UserManagerCenter + "/register";
 
     /*
      *用户权限访问
@@ -64,11 +85,19 @@ public class MyRouter {
      */
     public final static String UserManager_Permission_GetAllRouters             = Prefix + MyServiceName.UserManagerCenter + "/permission/getAllRouters";
     /**
-     * 查询某个角色拥有的权限
+     * 查询某个角色拥有的权限 getRouterIdsByUserId
      * GET
      * roleId:Integer notNull
      */
     public final static String UserManager_Permission_GetRoutersByRoleId        = Prefix + MyServiceName.UserManagerCenter + "/permission/getRoutersByRoleId";
+
+    /**
+     * 查询某个用户拥有的权限
+     * GET
+     * userId:Integer notNull
+     */
+    public final static String UserManager_Permission_GetRouterIdsByUserId      = Prefix + MyServiceName.UserManagerCenter + "/permission/getRouterIdsByUserId";
+
 
     /*
      * 用户权限管理
@@ -113,17 +142,6 @@ public class MyRouter {
 
     public  static Map<String ,MyRouterObject> routerMap = new HashMap<>();
 
-    private final static long byte1th       = 1 << 0;//第1位
-    private final static long byte2th       = 1 << 1;//第2位
-    private final static long byte3th       = 1 << 2;//第3位
-    private final static long byte4th       = 1 << 3;//第4位
-    private final static long byte5th       = 1 << 4;//第5位
-    private final static long byte6th       = 1 << 5;//第6位
-    private final static long byte7th       = 1 << 6;//第7位
-    private final static long byte8th       = 1 << 7;//第8位
-    private final static long byte9th       = 1 << 8;//第9位
-    private final static long byte10th      = 1 << 9;//第10位
-
     /**
      * 初始化routerMap
      * 这个在添加新的router时要仔细检查，服务启动时会根据routerMap来初始化路由表
@@ -139,6 +157,8 @@ public class MyRouter {
         routerMap.put("UserManager_Permission_GetUsersByRoleId",        new MyRouterObject(2003, UserManager_Permission_GetUsersByRoleId));
         routerMap.put("UserManager_Permission_GetAllRouters",           new MyRouterObject(2004, UserManager_Permission_GetAllRouters));
         routerMap.put("UserManager_Permission_GetRoutersByRoleId",      new MyRouterObject(2005, UserManager_Permission_GetRoutersByRoleId));
+        routerMap.put("UserManager_Permission_GetRouterIdsByUserId",    new MyRouterObject(2006, UserManager_Permission_GetRouterIdsByUserId));
+
 
         routerMap.put("UserManager_PermissionManager_addRole",          new MyRouterObject(2100, UserManager_PermissionManager_addRole));
         routerMap.put("UserManager_PermissionManager_addRoleForUser",   new MyRouterObject(2101, UserManager_PermissionManager_addRoleForUser));
