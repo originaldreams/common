@@ -1,4 +1,4 @@
-package com.originaldreams.common;
+package com.originaldreams.common.response;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

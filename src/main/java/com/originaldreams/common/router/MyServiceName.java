@@ -1,4 +1,4 @@
-package com.originaldreams.common;
+package com.originaldreams.common.router;
 
 /**
  * 维护组件名

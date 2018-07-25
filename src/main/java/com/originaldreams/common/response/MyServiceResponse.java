@@ -1,4 +1,4 @@
-package com.originaldreams.common;
+package com.originaldreams.common.response;
 
 /**
  * 规定Service统一的消息返回格式

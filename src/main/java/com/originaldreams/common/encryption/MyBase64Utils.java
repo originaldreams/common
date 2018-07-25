@@ -1,4 +1,4 @@
-package com.originaldreams.common;
+package com.originaldreams.common.encryption;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

@@ -1,4 +1,4 @@
-package com.originaldreams.common;
+package com.originaldreams.common.router;
 
 public class MyRouterObject {
     private Integer id;
@@ -12,14 +12,10 @@ public class MyRouterObject {
     /**
      * @param id
      * @param routerUrl 格式：http://UserManagerCenter/permission/getAllRoles"
-     * @param firstMask
-     * @param secondMask
      */
-    public MyRouterObject(Integer id, String routerUrl, Long firstMask, Long secondMask){
+    public MyRouterObject(Integer id, String routerUrl){
         this.id = id;
         this.routerUrl = routerUrl;
-        this.firstMask = firstMask;
-        this.secondMask = secondMask;
         /*
         这里可能产生数组越界抛异常，当抛异常时，说明routerUrl格式不正确，需要修改
          */
