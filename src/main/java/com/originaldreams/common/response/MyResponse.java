@@ -19,12 +19,11 @@ public class MyResponse {
 
     /**
      * 异常请求
-     * @param message
      * @return
      */
-    public static ResponseEntity badRequest(String message){
-        MyServiceResponse object = new MyServiceResponse(MyServiceResponse.success_code_failed,message);
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(object);
+    public static ResponseEntity badRequest(){
+        MyServiceResponse response = new MyServiceResponse(MyServiceResponse.success_code_failed,"请求参数异常");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON).body(response);
     }
 
     /**
@@ -32,7 +31,8 @@ public class MyResponse {
      * @return
      */
     public static  ResponseEntity unauthorized(){
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).contentType(MediaType.APPLICATION_JSON).body("用户未登录");
+        MyServiceResponse response = new MyServiceResponse(MyServiceResponse.success_code_failed,"用户未登录");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).contentType(MediaType.APPLICATION_JSON).body(response);
     }
 
     /**
@@ -40,6 +40,7 @@ public class MyResponse {
      * @return
      */
     public static  ResponseEntity forbidden(){
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.APPLICATION_JSON).body("没有权限");
+        MyServiceResponse response = new MyServiceResponse(MyServiceResponse.success_code_failed,"没有权限");
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.APPLICATION_JSON).body(response);
     }
 }
