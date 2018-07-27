@@ -140,6 +140,11 @@ public class MyRouter {
      */
     public final static String UserManager_PermissionManager_updateRole         = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/updateRole";
 
+    /**
+     * 保存所有的权限
+     * Key:MethodName 客户端访问所有权限都要根据方法名访问
+     * Value:权限
+     */
     public  static Map<String ,MyRouterObject> routerMap = new HashMap<>();
 
     /**
@@ -168,4 +173,32 @@ public class MyRouter {
 
     }
 
+    /**
+     * 根据MethodName获取Router
+     * @param methodName
+     * @return
+     */
+    public static MyRouterObject getRouterByMethodName(String methodName){
+        if(methodName == null)
+            return null;
+
+        MyRouterObject routerObject  = MyRouter.routerMap.get(methodName);
+        return routerObject;
+    }
+
+    /**
+     * 根据MethodName获取RouterUrl
+     * @param methodName
+     * @return
+     */
+    public static String  getRouterUrlByMethodName(String methodName){
+        if(methodName == null)
+            return null;
+
+        String routerUrl = MyRouter.routerMap.get(methodName).getRouterUrl();
+        if(routerUrl == null || routerUrl.equals("")){
+            return null;
+        }
+        return routerUrl;
+    }
 }
