@@ -140,7 +140,7 @@ public class MyRouter {
      */
     public final static String UserManager_PermissionManager_UpdateRole         = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/updateRole";
 
-    public final static String UserManager_UserInfo_GetById                     = Prefix + MyServiceName.UserManagerCenter + "/userInfo/getById";
+    public final static String UserManager_UserInfo_Get                         = Prefix + MyServiceName.UserManagerCenter + "/userInfo/get";
     /**
      * 保存所有的权限
      * Key:MethodName 客户端访问所有权限都要根据方法名访问
@@ -172,7 +172,7 @@ public class MyRouter {
         routerMap.put("UserManager_PermissionManager_DeleteRoleById",   new MyRouterObject(2103, UserManager_PermissionManager_DeleteRoleById));
         routerMap.put("UserManager_PermissionManager_UpdateRole",       new MyRouterObject(2104, UserManager_PermissionManager_UpdateRole));
 
-        routerMap.put("UserManager_UserInfo_GetById",                   new MyRouterObject(2200, UserManager_UserInfo_GetById));
+        routerMap.put("UserManager_UserInfo_Get",                       new MyRouterObject(2200, UserManager_UserInfo_Get));
 
     }
 
