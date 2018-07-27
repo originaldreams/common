@@ -108,28 +108,28 @@ public class MyRouter {
      * name:String notNull
      * description:String notNull
      */
-    public final static String UserManager_PermissionManager_addRole            = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/addRole";
+    public final static String UserManager_PermissionManager_AddRole            = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/addRole";
     /**
      * 添加用户的角色
      * POST
      * userId:Integer notNull
      * roleId:Integer notNull
      */
-    public final static String UserManager_PermissionManager_addRoleForUser     = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/addRoleForUser";
+    public final static String UserManager_PermissionManager_AddRoleForUser     = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/addRoleForUser";
     /**
      * 添加角色的权限
      * POST
      * roleId:Integer notNull
      * routerId:Integer notNull
      */
-    public final static String UserManager_PermissionManager_addRouterForRole   = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/addRouterForRole";
+    public final static String UserManager_PermissionManager_AddRouterForRole   = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/addRouterForRole";
 
     /**
      * 删除角色
      * DELETE
      * id:Integer notNull
      */
-    public final static String UserManager_PermissionManager_deleteRoleById     = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/deleteRoleById";
+    public final static String UserManager_PermissionManager_DeleteRoleById     = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/deleteRoleById";
 
     /**
      * 修改角色
@@ -138,8 +138,9 @@ public class MyRouter {
      * name:String notNull
      * description:String null
      */
-    public final static String UserManager_PermissionManager_updateRole         = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/updateRole";
+    public final static String UserManager_PermissionManager_UpdateRole         = Prefix + MyServiceName.UserManagerCenter + "/permissionManager/updateRole";
 
+    public final static String UserManager_UserInfo_GetById                     = Prefix + MyServiceName.UserManagerCenter + "/userInfo/getById";
     /**
      * 保存所有的权限
      * Key:MethodName 客户端访问所有权限都要根据方法名访问
@@ -165,11 +166,13 @@ public class MyRouter {
         routerMap.put("UserManager_Permission_GetRouterIdsByUserId",    new MyRouterObject(2006, UserManager_Permission_GetRouterIdsByUserId));
 
 
-        routerMap.put("UserManager_PermissionManager_addRole",          new MyRouterObject(2100, UserManager_PermissionManager_addRole));
-        routerMap.put("UserManager_PermissionManager_addRoleForUser",   new MyRouterObject(2101, UserManager_PermissionManager_addRoleForUser));
-        routerMap.put("UserManager_PermissionManager_addRouterForRole", new MyRouterObject(2102, UserManager_PermissionManager_addRouterForRole));
-        routerMap.put("UserManager_PermissionManager_deleteRoleById",   new MyRouterObject(2103, UserManager_PermissionManager_deleteRoleById));
-        routerMap.put("UserManager_PermissionManager_updateRole",       new MyRouterObject(2104, UserManager_PermissionManager_updateRole));
+        routerMap.put("UserManager_PermissionManager_AddRole",          new MyRouterObject(2100, UserManager_PermissionManager_AddRole));
+        routerMap.put("UserManager_PermissionManager_AddRoleForUser",   new MyRouterObject(2101, UserManager_PermissionManager_AddRoleForUser));
+        routerMap.put("UserManager_PermissionManager_AddRouterForRole", new MyRouterObject(2102, UserManager_PermissionManager_AddRouterForRole));
+        routerMap.put("UserManager_PermissionManager_DeleteRoleById",   new MyRouterObject(2103, UserManager_PermissionManager_DeleteRoleById));
+        routerMap.put("UserManager_PermissionManager_UpdateRole",       new MyRouterObject(2104, UserManager_PermissionManager_UpdateRole));
+
+        routerMap.put("UserManager_UserInfo_GetById",                   new MyRouterObject(2200, UserManager_UserInfo_GetById));
 
     }
 
