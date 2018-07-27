@@ -43,4 +43,14 @@ public class MyResponse {
         MyServiceResponse response = new MyServiceResponse(MyServiceResponse.success_code_failed,"没有权限");
         return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.APPLICATION_JSON).body(response);
     }
+
+    /**
+     * 系统内部错误
+     * @return
+     */
+    public static  ResponseEntity serverError(){
+        MyServiceResponse response = new MyServiceResponse(MyServiceResponse.success_code_failed,"系统内部错误");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.APPLICATION_JSON).body(response);
+    }
+
 }
