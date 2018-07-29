@@ -66,8 +66,8 @@ public class MyRouter {
      * userId:Integer notNull
      *
      */
-    public final static String USER_MANAGER_PERMISSION_GET_ROLES_BY_USER_ID =
-            PREFIX + MyServiceName.USER_MANAGER_CENTER + "/permission/getRolesByUserId";
+    public final static String USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID =
+            PREFIX + MyServiceName.USER_MANAGER_CENTER + "/permission/getRoleByUserId";
     /**
      * 查询包含某个权限的角色
      * GET
@@ -174,8 +174,8 @@ public class MyRouter {
 
         routerMap.put("USER_MANAGER_PERMISSION_GET_ALL_ROLES",
                 new MyRouterObject(2000, USER_MANAGER_PERMISSION_GET_ALL_ROLES));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ROLES_BY_USER_ID",
-                new MyRouterObject(2001, USER_MANAGER_PERMISSION_GET_ROLES_BY_USER_ID));
+        routerMap.put("USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID",
+                new MyRouterObject(2001, USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID));
         routerMap.put("USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID",
                 new MyRouterObject(2002, USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID));
         routerMap.put("USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID",
@@ -210,8 +210,9 @@ public class MyRouter {
      * @return
      */
     public static MyRouterObject getRouterByMethodName(String methodName){
-        if(methodName == null)
+        if(methodName == null){
             return null;
+        }
 
         MyRouterObject routerObject  = MyRouter.routerMap.get(methodName);
         return routerObject;
@@ -223,11 +224,12 @@ public class MyRouter {
      * @return
      */
     public static String  getRouterUrlByMethodName(String methodName){
-        if(methodName == null)
+        if(methodName == null){
             return null;
+        }
 
         String routerUrl = MyRouter.routerMap.get(methodName).getRouterUrl();
-        if(routerUrl == null || routerUrl.equals("")){
+        if(routerUrl == null || "".equals(routerUrl)){
             return null;
         }
         return routerUrl;
