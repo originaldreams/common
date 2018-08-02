@@ -7,9 +7,17 @@ import java.util.Map;
  * 维护组件为前端提供的接口，这些接口会自动读取到my_core库的router表中
  * 接口命名规则：组件名_Controller上的RequestMapping.value_接口上的RequestMapping.value  首字母大写
  * 新增的接口在这里注册，同时加入到routerMap里
+ * @author 杨凯乐
+ * @date 2018-07-30 09:25:42
  */
 public class MyRouter {
     public final static String PREFIX = "http://";
+
+    public final static String REQUEST_METHOD_GET = "GET";
+    public final static String REQUEST_METHOD_POST = "POST";
+    public final static String REQUEST_METHOD_DELETE = "DELETE";
+    public final static String REQUEST_METHOD_PUT = "PUT";
+
 
     /*
      * 测试
@@ -159,49 +167,55 @@ public class MyRouter {
      * Key:MethodName 客户端访问所有权限都要根据方法名访问
      * Value:权限
      */
-    public  static Map<String, MyRouterObject> routerMap = new HashMap<>();
+    public  static Map<String, MyRouterObject> routerMapGet = new HashMap<>();
+    public  static Map<String, MyRouterObject> routerMapPost = new HashMap<>();
+    public  static Map<String, MyRouterObject> routerMapDelete = new HashMap<>();
+    public  static Map<String, MyRouterObject> routerMapPut = new HashMap<>();
 
     /**
      * 初始化routerMap
      * 这个在添加新的router时要仔细检查，服务启动时会根据routerMap来初始化路由表
      */
     static{
-
-        routerMap.put("LOG_HTTP_GET",
-                new MyRouterObject(1000, LOG_HTTP_GET));
-        routerMap.put("LOG_HTTP_POST",
-                new MyRouterObject(1001, LOG_HTTP_POST));
-
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ALL_ROLES",
-                new MyRouterObject(2000, USER_MANAGER_PERMISSION_GET_ALL_ROLES));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID",
-                new MyRouterObject(2001, USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID",
-                new MyRouterObject(2002, USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID",
-                new MyRouterObject(2003, USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ALL_ROUTERS",
-                new MyRouterObject(2004, USER_MANAGER_PERMISSION_GET_ALL_ROUTERS));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ROUTERS_BY_ROLE_ID",
-                new MyRouterObject(2005, USER_MANAGER_PERMISSION_GET_ROUTERS_BY_ROLE_ID));
-        routerMap.put("USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID",
-                new MyRouterObject(2006, USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID));
+        routerMapGet.put("LOG_HTTP_GET",
+                new MyRouterObject(10000, LOG_HTTP_GET));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ALL_ROLES",
+                new MyRouterObject(10001, USER_MANAGER_PERMISSION_GET_ALL_ROLES));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID",
+                new MyRouterObject(10002, USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID",
+                new MyRouterObject(10003, USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID",
+                new MyRouterObject(10004, USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ALL_ROUTERS",
+                new MyRouterObject(10005, USER_MANAGER_PERMISSION_GET_ALL_ROUTERS));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ROUTERS_BY_ROLE_ID",
+                new MyRouterObject(10006, USER_MANAGER_PERMISSION_GET_ROUTERS_BY_ROLE_ID));
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID",
+                new MyRouterObject(10007, USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID));
+        routerMapGet.put("USER_MANAGER_USER_INFO_GET",
+                new MyRouterObject(10008, USER_MANAGER_USER_INFO_GET));
 
 
-        routerMap.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE",
-                new MyRouterObject(2100, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE));
-        routerMap.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER",
-                new MyRouterObject(2101, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER));
-        routerMap.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE",
-                new MyRouterObject(2102, USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE));
-        routerMap.put("USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID",
-                new MyRouterObject(2103, USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID));
-        routerMap.put("USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE",
-                new MyRouterObject(2104, USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE));
 
-        routerMap.put("USER_MANAGER_USER_INFO_GET",
-                new MyRouterObject(2200, USER_MANAGER_USER_INFO_GET));
+        routerMapPost.put("LOG_HTTP_POST",
+                new MyRouterObject(20000, LOG_HTTP_POST));
 
+
+
+        routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE",
+                new MyRouterObject(20001, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE));
+        routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER",
+                new MyRouterObject(20002, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER));
+        routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE",
+                new MyRouterObject(20003, USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE));
+
+
+        routerMapDelete.put("USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID",
+                new MyRouterObject(30000, USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID));
+
+        routerMapPut.put("USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE",
+                new MyRouterObject(40000, USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE));
     }
 
     /**
@@ -209,29 +223,23 @@ public class MyRouter {
      * @param methodName
      * @return
      */
-    public static MyRouterObject getRouterByMethodName(String methodName){
-        if(methodName == null){
+    public static MyRouterObject getRouter(String method,String methodName){
+        if(method == null || methodName == null){
             return null;
         }
-
-        MyRouterObject routerObject  = MyRouter.routerMap.get(methodName);
+        MyRouterObject routerObject ;
+        switch (method){
+            case REQUEST_METHOD_GET:
+                routerObject  = MyRouter.routerMapGet.get(methodName); break;
+            case REQUEST_METHOD_POST:
+                routerObject  = MyRouter.routerMapPost.get(methodName); break;
+            case REQUEST_METHOD_DELETE:
+                routerObject  = MyRouter.routerMapDelete.get(methodName); break;
+            case REQUEST_METHOD_PUT:
+                routerObject  = MyRouter.routerMapPut.get(methodName); break;
+            default:routerObject = null;break;
+        }
         return routerObject;
     }
 
-    /**
-     * 根据MethodName获取RouterUrl
-     * @param methodName
-     * @return
-     */
-    public static String  getRouterUrlByMethodName(String methodName){
-        if(methodName == null){
-            return null;
-        }
-
-        String routerUrl = MyRouter.routerMap.get(methodName).getRouterUrl();
-        if(routerUrl == null || "".equals(routerUrl)){
-            return null;
-        }
-        return routerUrl;
-    }
 }

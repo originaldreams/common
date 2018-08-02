@@ -1,5 +1,9 @@
 package com.originaldreams.common.router;
 
+/**
+ * @author 杨凯乐
+ * @date 2018-08-02 09:33:01
+ */
 public class MyRouterObject {
     private Integer id;
     private String serviceName;
@@ -23,7 +27,9 @@ public class MyRouterObject {
             String[] array = routerUrl.split("/");
             this.serviceName = array[2];
             this.controllerName = array[3];
-            this.methodName = array[4];
+            if(array.length >= 5){
+                this.methodName = array[4];
+            }
         }catch (ArrayIndexOutOfBoundsException e){
             throw new ArrayIndexOutOfBoundsException("routerUrl格式不正确");
         }
