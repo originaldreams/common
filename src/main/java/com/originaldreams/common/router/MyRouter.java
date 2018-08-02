@@ -98,7 +98,7 @@ public class MyRouter {
     public final static String USER_MANAGER_PERMISSION_GET_ALL_ROUTERS =
             PREFIX + MyServiceName.USER_MANAGER_CENTER + "/permission/getAllRouters";
     /**
-     * 查询某个角色拥有的权限 getRouterIdsByUserId
+     * 查询某个角色拥有的权限
      * GET
      * roleId:Integer notNull
      */
@@ -106,7 +106,7 @@ public class MyRouter {
             PREFIX + MyServiceName.USER_MANAGER_CENTER + "/permission/getRoutersByRoleId";
 
     /**
-     * 查询某个用户拥有的权限
+     * 查询某个用户拥有的权限ID
      * GET
      * userId:Integer notNull
      */
