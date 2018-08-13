@@ -42,14 +42,15 @@
     </dependencies>
 
     <build>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-        </plugins>
+        </plugins>-->
+
     </build>
-    <!--maven deploy 命令进行打包  需要在maven sttings.xml里配置仓库地址和通行证
+    <!--maven deploy 命令进行打包  需要在maven settings.xml里配置仓库地址和通行证
      <server>
       <id>releasesId</id>
       <username>admin</username>
