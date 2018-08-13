@@ -5,7 +5,7 @@
 
     <groupId>com.originaldreams</groupId>
     <artifactId>common</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>common</name>
@@ -49,18 +49,7 @@
             </plugin>
         </plugins>
     </build>
-    <!--maven deploy 命令进行打包  需要在maven sttings.xml里配置仓库地址和通行证
-     <server>
-      <id>releasesId</id>
-      <username>admin</username>
-      <password>admin123</password>
-    </server>
-    <server>
-      <id>snapshotsid</id>
-      <username>admin</username>
-      <password>admin123</password>
-    </server>
-    -->
+
     <distributionManagement>
         <repository>
             <id>releasesId</id>
