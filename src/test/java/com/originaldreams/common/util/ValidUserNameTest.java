@@ -11,11 +11,13 @@ public class ValidUserNameTest {
         String email1 = "example@gmail.com";
         String email2 = "example-example@gmail.com";
         String email3 = "example+example@gmail.com";
+        String email4 = "example_example@gmail.com";
 
         String emailError1 = "asdadwwddw";
         Assert.assertTrue(ValidUserName.isValidEmailAddress(email1));
         Assert.assertTrue(ValidUserName.isValidEmailAddress(email2));
         Assert.assertTrue(ValidUserName.isValidEmailAddress(email3));
+        Assert.assertTrue(ValidUserName.isValidEmailAddress(email4));
 
         Assert.assertFalse(ValidUserName.isValidEmailAddress(emailError1));
 
