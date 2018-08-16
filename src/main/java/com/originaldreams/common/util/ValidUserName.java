@@ -11,7 +11,10 @@ import java.util.regex.Pattern;
 public class ValidUserName {
 
 
-    private static final String PHONE_NUMBER_PATTERN = "^1+[35678]+\\d{9}$";
+    /**
+     * 允许1开头的11位数字
+     */
+    private static final String PHONE_NUMBER_PATTERN = "^1+\\d{10}$";
 
     /**
      * 下划线位置不限
