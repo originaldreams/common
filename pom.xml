@@ -5,8 +5,9 @@
 
     <groupId>com.originaldreams</groupId>
     <artifactId>common</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
+
 
     <name>common</name>
     <description>Demo project for Spring Boot</description>
@@ -42,11 +43,13 @@
     </dependencies>
 
     <build>
+       <finalName>common</finalName>
+
         <plugins>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
