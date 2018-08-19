@@ -162,6 +162,17 @@ public class MyRouter {
 
     public final static String USER_MANAGER_USER_INFO_GET =
             PREFIX + MyServiceName.USER_MANAGER_CENTER + "/userInfo/get";
+
+    /**
+     * 添加用户登录日志
+     * POST
+     * userId:Integer notNull
+     * type:Integer notNull
+     * way:Integer notNull
+     * ip:String null
+     * deviceId:String null
+     */
+    public final static String LOG_LOGON_LOG_INSERT = PREFIX + MyServiceName.LOG_CENTER + "/logonLog/insert";
     /**
      * 保存所有的权限
      * Key:MethodName 客户端访问所有权限都要根据方法名访问
@@ -200,15 +211,14 @@ public class MyRouter {
 
         routerMapPost.put("LOG_HTTP_POST",
                 new MyRouterObject(20000, LOG_HTTP_POST));
-
-
-
         routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE",
                 new MyRouterObject(20001, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE));
         routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER",
                 new MyRouterObject(20002, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER));
         routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE",
                 new MyRouterObject(20003, USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE));
+        routerMapPost.put("LOG_LOGON_LOG_INSERT",
+                new MyRouterObject(20004,LOG_LOGON_LOG_INSERT));
 
 
         routerMapDelete.put("USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID",
