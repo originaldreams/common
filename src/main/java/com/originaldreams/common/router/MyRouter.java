@@ -160,6 +160,9 @@ public class MyRouter {
     public final static String USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE =
             PREFIX + MyServiceName.USER_MANAGER_CENTER + "/permissionManager/updateRole";
 
+    public final static String USER_MANAGER_PERMISSION_GET_ALL_USERNAME_AND_ROLENAME =
+            PREFIX + MyServiceName.USER_MANAGER_CENTER + "/permission/getAllUserNameAndRoleName";
+
     public final static String USER_MANAGER_USER_INFO_GET =
             PREFIX + MyServiceName.USER_MANAGER_CENTER + "/userInfo/get";
 
@@ -206,7 +209,8 @@ public class MyRouter {
                 new MyRouterObject(10007, USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID));
         routerMapGet.put("USER_MANAGER_USER_INFO_GET",
                 new MyRouterObject(10008, USER_MANAGER_USER_INFO_GET));
-
+        routerMapGet.put("USER_MANAGER_PERMISSION_GET_ALL_USERNAME_AND_ROLENAME",
+                new MyRouterObject(10009, USER_MANAGER_PERMISSION_GET_ALL_USERNAME_AND_ROLENAME));
 
 
         routerMapPost.put("LOG_HTTP_POST",
