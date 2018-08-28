@@ -58,6 +58,13 @@ public class MyRouter {
      */
     public final static String USER_MANAGER_REGISTER = PREFIX + MyServiceName.USER_MANAGER_CENTER + "/register";
 
+    /**
+     * 发送短信验证码
+     * GER
+     * phone:String notNull
+     */
+    public final static String PUBLIC_SERVICE_SMS_SEND_VERIFICATIONCODE = PREFIX + MyServiceName.PUBLIC_SERVICE_CENTER + "/SMS/sendVerificationCode";
+
     /*
      *用户权限访问
      */
