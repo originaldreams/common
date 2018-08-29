@@ -184,6 +184,19 @@ public class MyRouter {
      */
     public final static String LOG_LOGON_LOG_INSERT = PREFIX + MyServiceName.LOG_CENTER + "/logonLog/insert";
     /**
+     * 添加短信发送日志
+     * POST
+     * phone:String notNull
+     * type:Integer notNull
+     * templateId:String notNull
+     * codeStr:String notNull
+     * minuteStr:String notNull
+     * result:String notNull
+     * stateCode:String notNull
+     */
+    public final static String LOG_SMS_LOG_INSERT = PREFIX + MyServiceName.LOG_CENTER + "/smsLog/insert";
+
+    /**
      * 保存所有的权限
      * Key:MethodName 客户端访问所有权限都要根据方法名访问
      * Value:权限
@@ -228,8 +241,6 @@ public class MyRouter {
                 new MyRouterObject(20002, USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE_FOR_USER));
         routerMapPost.put("USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE",
                 new MyRouterObject(20003, USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE));
-        routerMapPost.put("LOG_LOGON_LOG_INSERT",
-                new MyRouterObject(20004,LOG_LOGON_LOG_INSERT));
 
 
         routerMapDelete.put("USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID",
