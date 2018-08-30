@@ -38,6 +38,15 @@ public class MyRouter {
      */
     public final static String LOG_HTTP_POST = PREFIX + MyServiceName.LOG_CENTER + "/http/post";
 
+
+    /**
+     * 验证短信验证码是否正确
+     * GET
+     * phone 手机号 notNull
+     * codeStr 验证码 notNull
+     */
+    public final static String LOG_SMSLOG_CHECK_AND_UPDATE_STATE =  PREFIX + MyServiceName.LOG_CENTER + "/smsLog/checkAndUpdateState";
+
     /**
      * 登录
      * POST
