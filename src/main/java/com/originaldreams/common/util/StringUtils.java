@@ -11,8 +11,20 @@ public class StringUtils {
     public static final String numbersChar = "0123456789";
     public static final String allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    public static boolean isEmpty(String text){
-        return text == null || text.isEmpty();
+    /**
+     * 判断一系列字符串中是否有空的（包含:空字符串、null、纯空格字符）
+     * @param parameters 需要判断的字符串，可以是多个
+     * @return
+     */
+    public static boolean isEmpty(String... parameters){
+        boolean result = false;
+        for(String str:parameters){
+            if(str == null || str.isEmpty() || str.trim().isEmpty()){
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
     /**
