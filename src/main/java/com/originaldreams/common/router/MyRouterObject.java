@@ -5,13 +5,36 @@ package com.originaldreams.common.router;
  * @date 2018-08-02 09:33:01
  */
 public class MyRouterObject {
+    /**
+     * 接口ID
+     */
     private Integer id;
+    /**
+     * 接口名称
+     */
+    private String name;
+    /**
+     * 组件名称
+     */
     private String serviceName;
+    /**
+     * Controller名称
+     */
     private String controllerName;
+    /**
+     * 方法名称
+     */
     private String methodName;
+    /**
+     * 路由
+     */
     private String routerUrl;
-    private Long firstMask;
-    private Long secondMask;
+    /**
+     * 请求类型
+     */
+    private String requestType;
+
+
 
     /**
      * @param id
@@ -20,6 +43,25 @@ public class MyRouterObject {
     public MyRouterObject(Integer id, String routerUrl){
         this.id = id;
         this.routerUrl = routerUrl;
+        /*
+        这里可能产生数组越界抛异常，当抛异常时，说明routerUrl格式不正确，需要修改
+         */
+        try {
+            String[] array = routerUrl.split("/");
+            this.serviceName = array[2];
+            this.controllerName = array[3];
+            if(array.length >= 5){
+                this.methodName = array[4];
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+            throw new ArrayIndexOutOfBoundsException("routerUrl格式不正确");
+        }
+    }
+    public MyRouterObject(Integer id, String name,String routerUrl,String requestType){
+        this.id = id;
+        this.name = name;
+        this.routerUrl = routerUrl;
+        this.requestType = requestType;
         /*
         这里可能产生数组越界抛异常，当抛异常时，说明routerUrl格式不正确，需要修改
          */
@@ -75,19 +117,32 @@ public class MyRouterObject {
         this.routerUrl = routerUrl;
     }
 
-    public Long getFirstMask() {
-        return firstMask;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstMask(Long firstMask) {
-        this.firstMask = firstMask;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getSecondMask() {
-        return secondMask;
+    public String getRequestType() {
+        return requestType;
     }
 
-    public void setSecondMask(Long secondMask) {
-        this.secondMask = secondMask;
+    public void setRequestType(String requestType) {
+        this.requestType = requestType;
+    }
+
+    @Override
+    public String toString() {
+        return "MyRouterObject{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", controllerName='" + controllerName + '\'' +
+                ", methodName='" + methodName + '\'' +
+                ", routerUrl='" + routerUrl + '\'' +
+                ", requestType='" + requestType + '\'' +
+                '}';
     }
 }
