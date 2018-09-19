@@ -1,15 +1,22 @@
 package com.originaldreams.common.router;
 
+import com.originaldreams.common.util.ConfigUtils;
+
 /**
  * @author yangkaile
  * @date 2018-09-18 13:41:49
  */
 public class MyLogRouter extends MyNewRouter {
-    public  String serviceName = MyServiceName.LOG_CENTER;
     @Override
-    public  String getUrl(String router){
-        return PREFIX + serviceName + router;
+    public int getServiceRouterId(){
+        return ConfigUtils.ROUTER_ID_LOG;
     }
+
+    @Override
+    public String getServiceName(){
+        return MyServiceName.LOG_CENTER;
+    }
+
     private static MyLogRouter instance;
     public static MyLogRouter getInstance(){
         if(instance == null){
@@ -20,11 +27,11 @@ public class MyLogRouter extends MyNewRouter {
 
     @Override
     public  void init(){
-        initRouter(LOG_HTTP_GET);
-        initRouter(LOG_HTTP_POST);
-        initRouter(LOG_LOGON_LOG_INSERT);
-        initRouter(LOG_SMS_LOG_INSERT);
-        initRouter(LOG_SMSLOG_CHECK_AND_UPDATE_STATE);
+        addRouter(LOG_HTTP_GET);
+        addRouter(LOG_HTTP_POST);
+        addRouter(LOG_LOGON_LOG_INSERT);
+        addRouter(LOG_SMS_LOG_INSERT);
+        addRouter(LOG_SMSLOG_CHECK_AND_UPDATE_STATE);
     }
 
 
@@ -38,7 +45,7 @@ public class MyLogRouter extends MyNewRouter {
             new MyRouterObject(10000,
                     "LOG_HTTP_GET",
                     getUrl("/http/get"),
-                    REQUEST_METHOD_GET);
+                    ConfigUtils.REQUEST_METHOD_GET);
 
 
     /**
@@ -51,7 +58,7 @@ public class MyLogRouter extends MyNewRouter {
             new MyRouterObject(20000,
                     "LOG_HTTP_POST",
                     getUrl("/http/post"),
-                    REQUEST_METHOD_POST);
+                    ConfigUtils.REQUEST_METHOD_POST);
 
 
     /**
@@ -64,7 +71,7 @@ public class MyLogRouter extends MyNewRouter {
             new MyRouterObject(0,
                     "LOG_SMSLOG_CHECK_AND_UPDATE_STATE",
                     getUrl("/smsLog/checkAndUpdateState"),
-                    REQUEST_METHOD_GET);
+                    ConfigUtils.REQUEST_METHOD_GET);
 
     /**
      * 添加用户登录日志
@@ -78,7 +85,7 @@ public class MyLogRouter extends MyNewRouter {
     public final  MyRouterObject LOG_LOGON_LOG_INSERT =
             new MyRouterObject(0,
                     "LOG_LOGON_LOG_INSERT",
-                    getUrl("/logonLog/insert"),REQUEST_METHOD_GET);
+                    getUrl("/logonLog/insert"),ConfigUtils.REQUEST_METHOD_GET);
 
     /**
      * 添加短信发送日志
@@ -94,6 +101,6 @@ public class MyLogRouter extends MyNewRouter {
     public final  MyRouterObject LOG_SMS_LOG_INSERT =
             new MyRouterObject(0,
                     "LOG_SMS_LOG_INSERT",
-                    getUrl( "/smsLog/insert"),REQUEST_METHOD_GET);
+                    getUrl( "/smsLog/insert"),ConfigUtils.REQUEST_METHOD_GET);
 
 }

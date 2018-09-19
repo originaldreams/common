@@ -1,5 +1,7 @@
 package com.originaldreams.common.router;
 
+import com.originaldreams.common.util.ConfigUtils;
+
 /**
  * 维护组件为前端提供的接口，这些接口会自动读取到my_core库的router表中
  * 接口命名规则：组件名_Controller上的RequestMapping.value_接口上的RequestMapping.value  首字母大写
@@ -8,26 +10,43 @@ package com.originaldreams.common.router;
  * @date 2018-07-30 09:25:42
  */
 public abstract class MyNewRouter {
-    public final static String PREFIX = "http://";
 
-    public final static String REQUEST_METHOD_GET = "GET";
-    public final static String REQUEST_METHOD_POST = "POST";
-    public final static String REQUEST_METHOD_DELETE = "DELETE";
-    public final static String REQUEST_METHOD_PUT = "PUT";
+    /**
+     * 获取组件名
+     * @return 组件名 如： UserManagerCenter
+     */
+    public abstract String getServiceName();
 
     /**
      * 通过组件内路由获取到完整的routerUrl
      * @param router 组件内的路由 如 /http/post
      * @return 如 http://LogCenter/http/post
      */
-    public abstract String getUrl(String router);
+    public  String getUrl(String router){
+        return ConfigUtils.HTTP_UTL_PREFIX + getServiceName() + router;
+    }
+
+
+    public abstract int getServiceRouterId();
+
+    public Integer getRouterId(int number) throws RuntimeException{
+        if(number >= ConfigUtils.SERVICE_ROUTER_MAX){
+            throw new RuntimeException("超过预设的路由上限");
+        }
+        return getServiceRouterId() * ConfigUtils.SERVICE_ROUTER_MAX + number;
+    }
 
     /**
      * 初始化路由表，在这个方法里依次调用initRouter方法，将所有的路由加载进来
      */
     public abstract void init();
 
-    public  void initRouter(MyRouterObject router){
+    /**
+     * 加载路由
+     * 将一个路由对象加载到路由表中
+     * @param router 路由对象
+     */
+    public  void addRouter(MyRouterObject router){
         Routers.routerMap.put(router.getName(),router);
     }
 

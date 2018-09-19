@@ -1,19 +1,26 @@
 package com.originaldreams.common.router;
 
+import com.originaldreams.common.util.ConfigUtils;
+
 /**
  * @author yangkaile
  * @date 2018-09-18 14:51:05
  */
 public class MyPublicServiceRouter extends MyNewRouter{
 
-    public final String serviceName = MyServiceName.PUBLIC_SERVICE_CENTER;
     @Override
-    public  String getUrl(String router){
-        return PREFIX + serviceName + router;
+    public int getServiceRouterId(){
+        return ConfigUtils.ROUTER_ID_PUBLIC_SERVICE;
     }
+
+    @Override
+    public String getServiceName(){
+        return MyServiceName.PUBLIC_SERVICE_CENTER;
+    }
+
     @Override
     public void init(){
-        initRouter(PUBLIC_SERVICE_SMS_SEND_VERIFICATIONCODE);
+        addRouter(PUBLIC_SERVICE_SMS_SEND_VERIFICATIONCODE);
     }
 
     private static MyPublicServiceRouter instance;
@@ -32,7 +39,7 @@ public class MyPublicServiceRouter extends MyNewRouter{
             new MyRouterObject(0,
                     "PUBLIC_SERVICE_SMS_SEND_VERIFICATIONCODE",
                     getUrl("/SMS/sendVerificationCode"),
-                    REQUEST_METHOD_GET);
+                    ConfigUtils.REQUEST_METHOD_GET);
 
 
 
