@@ -36,7 +36,7 @@ public class MyPublicServiceRouter extends MyNewRouter{
      * phone:String notNull
      */
     public final  MyRouterObject PUBLIC_SERVICE_SMS_SEND_VERIFICATIONCODE =
-            new MyRouterObject(0,
+            new MyRouterObject(getRouterId(1),
                     "PUBLIC_SERVICE_SMS_SEND_VERIFICATIONCODE",
                     getUrl("/SMS/sendVerificationCode"),
                     ConfigUtils.REQUEST_METHOD_GET);

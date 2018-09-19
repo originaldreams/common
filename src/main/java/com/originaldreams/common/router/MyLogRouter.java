@@ -42,7 +42,7 @@ public class MyLogRouter extends MyNewRouter {
      * name: String，null
      */
     public final  MyRouterObject LOG_HTTP_GET =
-            new MyRouterObject(10000,
+            new MyRouterObject(getRouterId(1),
                     "LOG_HTTP_GET",
                     getUrl("/http/get"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -55,7 +55,7 @@ public class MyLogRouter extends MyNewRouter {
      * name: String，notNull
      */
     public final  MyRouterObject LOG_HTTP_POST =
-            new MyRouterObject(20000,
+            new MyRouterObject(getRouterId(2),
                     "LOG_HTTP_POST",
                     getUrl("/http/post"),
                     ConfigUtils.REQUEST_METHOD_POST);
@@ -68,7 +68,7 @@ public class MyLogRouter extends MyNewRouter {
      * codeStr 验证码 notNull
      */
     public final  MyRouterObject LOG_SMSLOG_CHECK_AND_UPDATE_STATE =
-            new MyRouterObject(0,
+            new MyRouterObject(getRouterId(3),
                     "LOG_SMSLOG_CHECK_AND_UPDATE_STATE",
                     getUrl("/smsLog/checkAndUpdateState"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -83,7 +83,7 @@ public class MyLogRouter extends MyNewRouter {
      * deviceId:String null
      */
     public final  MyRouterObject LOG_LOGON_LOG_INSERT =
-            new MyRouterObject(0,
+            new MyRouterObject(getRouterId(4),
                     "LOG_LOGON_LOG_INSERT",
                     getUrl("/logonLog/insert"),ConfigUtils.REQUEST_METHOD_GET);
 
@@ -99,7 +99,7 @@ public class MyLogRouter extends MyNewRouter {
      * stateCode:String notNull
      */
     public final  MyRouterObject LOG_SMS_LOG_INSERT =
-            new MyRouterObject(0,
+            new MyRouterObject(getRouterId(5),
                     "LOG_SMS_LOG_INSERT",
                     getUrl( "/smsLog/insert"),ConfigUtils.REQUEST_METHOD_GET);
 

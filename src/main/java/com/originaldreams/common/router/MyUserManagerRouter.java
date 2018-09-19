@@ -55,7 +55,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * password:String notNull
      */
     public final MyRouterObject USER_MANAGER_LOGON =
-            new MyRouterObject(0,
+            new MyRouterObject(getRouterId(1),
                     "USER_MANAGER_LOGON",
                     getUrl( "/logon"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -70,7 +70,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * password:String notNull
      */
     public final MyRouterObject USER_MANAGER_REGISTER =
-            new MyRouterObject(0,
+            new MyRouterObject(getRouterId(2),
                     "USER_MANAGER_REGISTER",
                     getUrl( "/register"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -86,7 +86,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      *
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID =
-            new MyRouterObject(10002,
+            new MyRouterObject(getRouterId(3),
                     "USER_MANAGER_PERMISSION_GET_ROLE_BY_USER_ID",
                     getUrl("/permission/getRoleByUserId"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -97,7 +97,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * routerId:Integer notNull
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID =
-            new MyRouterObject(10003,
+            new MyRouterObject(getRouterId(4),
                     "USER_MANAGER_PERMISSION_GET_ROLES_BY_ROUTER_ID",
                     getUrl( "/permission/getRolesByRouterId"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -108,7 +108,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * roleId:Integer notNull
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID =
-            new MyRouterObject(10004,
+            new MyRouterObject(getRouterId(5),
                     "USER_MANAGER_PERMISSION_GET_USERS_BY_ROLE_ID",
                     getUrl( "/permission/getUsersByRoleId"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -119,7 +119,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * null
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_ALL_ROUTERS =
-            new MyRouterObject(10005,
+            new MyRouterObject(getRouterId(6),
                     "USER_MANAGER_PERMISSION_GET_ALL_ROUTERS",
                     getUrl( "/permission/getAllRouters"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -130,7 +130,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * roleId:Integer notNull
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_ROUTERS_BY_ROLE_ID =
-            new MyRouterObject(10006,
+            new MyRouterObject(getRouterId(7),
                     "USER_MANAGER_PERMISSION_GET_ROUTERS_BY_ROLE_ID",
                     getUrl("/permission/getRoutersByRoleId")
                     ,ConfigUtils.REQUEST_METHOD_GET);
@@ -141,7 +141,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * userId:Integer notNull
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID =
-            new MyRouterObject(10007,
+            new MyRouterObject(getRouterId(8),
                     "USER_MANAGER_PERMISSION_GET_ROUTER_IDS_BY_USER_ID",
                     getUrl( "/permission/getRouterIdsByUserId"),
                     ConfigUtils.REQUEST_METHOD_GET);
@@ -156,7 +156,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * description:String notNull
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE =
-            new MyRouterObject(20001,
+            new MyRouterObject(getRouterId(9),
                     "USER_MANAGER_PERMISSION_MANAGER_ADD_ROLE",
                     getUrl("/permissionManager/addRole"),
                     ConfigUtils.REQUEST_METHOD_POST);
@@ -180,7 +180,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * routerId:Integer notNull
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE =
-            new MyRouterObject(20003,
+            new MyRouterObject(getRouterId(10),
                     "USER_MANAGER_PERMISSION_MANAGER_ADD_ROUTER_FOR_ROLE",
                     getUrl( "/permissionManager/addRouterForRole"),
                     ConfigUtils.REQUEST_METHOD_POST);
@@ -191,7 +191,7 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * id:Integer notNull
      */
     public final  MyRouterObject USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID =
-            new MyRouterObject(30000,
+            new MyRouterObject(getRouterId(11),
                     "USER_MANAGER_PERMISSION_MANAGER_DELETE_ROLE_BY_ID",
                     getUrl( "/permissionManager/deleteRoleById"),
                     ConfigUtils.REQUEST_METHOD_DELETE);
@@ -204,21 +204,21 @@ public class MyUserManagerRouter  extends  MyNewRouter{
      * description:String null
      */
     public final MyRouterObject USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE =
-            new MyRouterObject(40000,
+            new MyRouterObject(getRouterId(12),
                     "USER_MANAGER_PERMISSION_MANAGER_UPDATE_ROLE",
                     getUrl("/permissionManager/updateRole"),
                     ConfigUtils.REQUEST_METHOD_PUT);
 
 
     public final MyRouterObject USER_MANAGER_PERMISSION_GET_ALL_USERNAME_AND_ROLENAME =
-            new MyRouterObject(10009,
+            new MyRouterObject(getRouterId(13),
                     "USER_MANAGER_PERMISSION_GET_ALL_USERNAME_AND_ROLENAME",
                     getUrl( "/permission/getAllUserNameAndRoleName"),
                     ConfigUtils.REQUEST_METHOD_GET);
 
 
     public final MyRouterObject USER_MANAGER_USER_INFO_GET =
-            new MyRouterObject(10008,
+            new MyRouterObject(getRouterId(14),
                     "USER_MANAGER_USER_INFO_GET",
                     getUrl( "/userInfo/get"),
                     ConfigUtils.REQUEST_METHOD_GET);
