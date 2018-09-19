@@ -26,7 +26,10 @@ public abstract class MyNewRouter {
         return ConfigUtils.HTTP_UTL_PREFIX + getServiceName() + router;
     }
 
-
+    /**
+     * 获取组件的路由ID
+     * @return 组件路由ID 如 10
+     */
     public abstract int getServiceRouterId();
 
     public Integer getRouterId(int number) throws RuntimeException{
