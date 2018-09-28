@@ -1,4 +1,4 @@
-package com.originaldreams.usermanagercenter.entity;
+package com.originaldreams.common.entity;
 
 
 import com.originaldreams.common.router.MyRouterObject;
