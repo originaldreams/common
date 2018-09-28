@@ -9,21 +9,17 @@ public class Router {
      private String controllerName;
      private String methodName;
      private String routerUrl;
-     private Long firstMask;
-     private Long secondMask;
      private String requestMethod;
 
     public Router() {
     }
 
-    public Router(Integer id, String serviceName, String controllerName, String methodName, String routerUrl, Long firstMask, Long secondMask) {
+    public Router(Integer id, String serviceName, String controllerName, String methodName, String routerUrl) {
         this.id = id;
         this.serviceName = serviceName;
         this.controllerName = controllerName;
         this.methodName = methodName;
         this.routerUrl = routerUrl;
-        this.firstMask = firstMask;
-        this.secondMask = secondMask;
     }
     public static  Router parseRouter(MyRouterObject routerObject){
         return new Router(
@@ -31,9 +27,7 @@ public class Router {
                 routerObject.getServiceName(),
                 routerObject.getControllerName(),
                 routerObject.getMethodName(),
-                routerObject.getRouterUrl(),
-                routerObject.getFirstMask(),
-                routerObject.getSecondMask()
+                routerObject.getRouterUrl()
         );
     }
 
@@ -67,18 +61,6 @@ public class Router {
      public void setRouterUrl(String routerUrl){
            this.routerUrl = routerUrl;
      }
-     public Long getFirstMask(){
-           return this.firstMask;
-     }
-     public void setFirstMask(Long firstMask){
-           this.firstMask = firstMask;
-     }
-     public Long getSecondMask(){
-           return this.secondMask;
-     }
-     public void setSecondMask(Long secondMask){
-           this.secondMask = secondMask;
-     }
 
     public String getRequestMethod() {
         return requestMethod;
@@ -91,7 +73,7 @@ public class Router {
     @Override
     public String toString() {
         return "Router{" +
-            "  id:" + id + "  serviceName:" + serviceName + "  controllerName:" + controllerName + "  methodName:" + methodName + "  routerUrl:" + routerUrl + "  firstMask:" + firstMask + "  secondMask:" + secondMask + 
+            "  id:" + id + "  serviceName:" + serviceName + "  controllerName:" + controllerName + "  methodName:" + methodName + "  routerUrl:" + routerUrl +
         "}";
     }
   }
